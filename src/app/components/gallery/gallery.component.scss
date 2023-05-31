@@ -1,0 +1,38 @@
+input {
+  font-size: 18px;
+  font-family: 'Domine', serif;
+  margin: 10px 5px 10px 0;
+  padding: 6px;
+  width: 80%;
+}
+
+.art-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.art-list h1 {
+  font-size: 40px;
+}
+
+.art-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 100%;
+  text-align: center;
+}
+
+.search-bar button {
+  font-size: 18px;
+  font-family: 'Domine', serif;
+  font-weight: 500;
+  padding: 6px;
+  width: 10%;
+}

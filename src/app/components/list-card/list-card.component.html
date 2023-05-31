@@ -1,0 +1,4 @@
+<a routerLink="/{{artwork.id}}" class="card">
+  <h4>{{artwork.title}}</h4>
+  <img [src]="artwork.image_id === null || artwork.image_id === undefined ? 'assets/placeholder-image.png' : artworkImage" alt={{artwork.thumbnail?.alt}} width={{250}} />
+</a>

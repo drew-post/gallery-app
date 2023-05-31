@@ -1,0 +1,16 @@
+<div class="art-list">
+  <h1>Art Database</h1>
+  <p>Search and learn about art provided by the Art Institute of Chicago.</p>
+  <div class="search-bar">
+    <input placeholder='Search...' [value]="searchInput"
+    (input)="searchInput=getValue($event)"
+    />
+    <button (click)="searchItems()">Search</button>
+  </div>
+  <h2 *ngIf="isLoading" class="art-loading">Loading...</h2>
+  <div *ngIf="!isLoading" class="art-cards">
+    <ng-container *ngFor="let art of gallery">
+      <app-list-card [artwork]="art"></app-list-card>
+    </ng-container>
+  </div>
+</div>

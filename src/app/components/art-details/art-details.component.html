@@ -1,0 +1,27 @@
+<div class="art-details-container">
+  <h4>
+    <a routerLink="/"> Back </a>
+  </h4>
+  <div class="art-details">
+    <h2 *ngIf="isLoading">Loading...</h2>
+    <div *ngIf="!isLoading" class="art-info">
+      <h1>{{artwork.title}}, {{artwork.artist_title === null ? "Unknown" : artwork.artist_title}}</h1>
+      <h2>{{artwork.date_display}}</h2>
+      <p><b>Style:</b> {{artwork.style_title === "none" || artwork.style_title === null ? "N/A" : artwork.style_title}}
+      </p>
+      <p><b>Dimensions:</b> {{artwork.dimensions}}</p>
+      <p><b>Medium Display:</b> {{artwork.medium_display}}</p>
+      <p><b>Inscriptions:</b> {{artwork.inscriptions === "none" || artwork.inscriptions === null ? "N/A" :
+        artwork.inscriptions}}</p>
+      <p><b>Publication History:</b> {{artwork.publication_history === "none" || artwork.publication_history === null ?
+        "N/A" :
+        artwork.publication_history}}</p>
+      <p><b>Exhibition History:</b> {{artwork.exhibition_history === "none" || artwork.exhibition_history === null ?
+        "N/A"
+        :
+        artwork.exhibition_history}}</p>
+    </div>
+    <br />
+      <img src={{artworkImage}} alt={{artwork.thumbnail?.alt}} width={{800}}/>
+  </div>
+</div>
