@@ -13,7 +13,13 @@ export class ListCardComponent implements OnInit {
   constructor(private artService: ArtService) { }
 
   ngOnInit(): void {
-    this.getArtworkImage();
+    if(this.artwork.image_id) {
+      this.artService.getArtworkImage(this.artwork.image_id).subscribe((response) => {
+        this.createImageFromBlob(response);
+      });
+    } else {
+      this.artworkImage = "assets/placeholder-image.png";
+    }
   }
 
   createImageFromBlob(image: Blob) {
@@ -24,14 +30,6 @@ export class ListCardComponent implements OnInit {
 
     if (image) {
       reader.readAsDataURL(image);
-    } else {
-      this.artworkImage = "assets/placeholder-image.png";
     }
-  }
-
-  getArtworkImage() {
-    this.artService.getArtworkImage(this.artwork.image_id).subscribe((response) => {
-      this.createImageFromBlob(response);
-    });
   }
 }

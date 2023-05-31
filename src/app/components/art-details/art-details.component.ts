@@ -34,14 +34,16 @@ export class ArtDetailsComponent implements OnInit {
 
     if (image) {
       reader.readAsDataURL(image);
-    } else {
-      this.artworkImage = "assets/placeholder-image.png";
     }
   }
 
   getArtworkImage() {
-    this.artService.getArtworkImage(this.artwork.image_id).subscribe((response) => {
-      this.createImageFromBlob(response);
-    });
+    if(this.artwork.image_id) {
+      this.artService.getArtworkImage(this.artwork.image_id).subscribe((response) => {
+        this.createImageFromBlob(response);
+      });
+    } else {
+      this.artworkImage = "assets/placeholder-image.png";
+    }
   }
 }
